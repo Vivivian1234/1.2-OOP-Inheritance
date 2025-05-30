@@ -1,3 +1,6 @@
+# weapons.py
+
+list = []
 
 class Weapon:
     def __init__(self, name, category, damage):
@@ -6,46 +9,64 @@ class Weapon:
         self.damage = damage
 
     def get_stats(self):
-        print(f"Name: {self.name}, Category: {self.category}, Damage: {self.damage}")
+        print(f"Name: {self.name}\nCategory: {self.category}\nDamage: {self.damage}")
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_category(self, category):
+        self.category = category
+
+    def set_damage(self, damage):
+        self.damage = damage
 
 
 class Sword(Weapon):
-    def __init__(self, name, damage, damage_category):
-        super().__init__(name, "Sword", damage)
+    def __init__(self, name, category, damage, damage_category):
+        super().__init__(name, category, damage)
         self.damage_category = damage_category
-    
+
     def get_stats(self):
-        crit_damage = self.damage * 3
-        print(f"Name: {self.name}, Category: {self.category}, Damage: {self.damage}, Damage Type: {self.damage_category}, Crit Damage: {crit_damage}")
+        print(f"Name: {self.name}\nCategory: {self.category}\nDamage: {self.damage}\nDamage Type: {self.damage_category}\nCrit Damage: {self.damage * 3}")
+        list.append("Name: {self.name}\nCategory: {self.category}\nDamage: {self.damage}\nDamage Type: {self.damage_category}\nCrit Damage: {self.damage * 3}")
+
+    def set_damage_category(self, damage_category):
+        self.damage_category = damage_category
 
 
 class Bow(Weapon):
-    def __init__(self, name, damage, bow_range):
-        super().__init__(name, "Bow", damage)
+    def __init__(self, name, category, damage, damage_category):
+        super().__init__(name, category, damage)
+        self.damage_category = damage_category
+
+    def get_stats(self):
+        print(f"Name: {self.name}\nCategory: {self.category}\nDamage: {self.damage}\nDamage Type: {self.damage_category}\nCrit Damage: {self.damage * 2}")
+
+    def set_damage_category(self, damage_category):
+        self.damage_category = damage_category
+
+
+class Longbow(Bow):
+    def __init__(self, name, category, damage, damage_category, bow_range):
+        super().__init__(name, category, damage, damage_category)
+        self.bow_range = bow_range
         bow_range = "Piercing"
-    
+
     def get_stats(self):
-        crit_damage = self.damage * 2
-        print(f"Name: {self.name}, Category: {self.category}, Damage: {self.damage}, Damage Type: {self.bow_range}, Crit Damage: {crit_damage}")
+        print(f"Name: {self.name}\nCategory: {self.category}\nDamage: {self.damage}\nDamage Type: {self.damage_category}\nRange: {self.bow_range} ft\nCrit Damage: {self.damage * 2}")
+
+    def set_bow_range(self, bow_range):
+        self.bow_range = bow_range
 
 
-class Longbow(Weapon):
-    def __init__(self, name, damage, damage_category):
-        super().__init__(name, "Longbow", damage)
-        self.damage_category = damage_category
-    
+class Shortbow(Bow):
+    def __init__(self, name, category, damage, damage_category, bow_range):
+        super().__init__(name, category, damage, damage_category)
+        self.bow_range = bow_range
+        bow_range = "Piercing"
+
     def get_stats(self):
-        crit_damage = self.damage * 2
-        print(f"Name: {self.name}, Category: {self.category}, Damage: {self.damage}, Damage Type: {self.damage_category}, Crit Damage: {crit_damage}")
+        print(f"Name: {self.name}\nCategory: {self.category}\nDamage: {self.damage}\nDamage Type: {self.damage_category}\nRange: {self.bow_range} ft\nCrit Damage: {self.damage * 2}")
 
-class Shortbow(Weapon):
-    def __init__(self, name, damage, damage_category):
-        super().__init__(name, "Shortbow", damage)
-        self.damage_category = damage_category
-    
-    def get_stats(self):
-        crit_damage = self.damage * 2
-        print(f"Name: {self.name}, Category: {self.category}, Damage: {self.damage}, Damage Type: {self.damage_category}, Crit Damage: {crit_damage}")
-
-
-
+    def set_bow_range(self, bow_range):
+        self.bow_range = bow_range
