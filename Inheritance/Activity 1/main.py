@@ -1,13 +1,17 @@
-from animal import Animal
+from animal import Animal, Dog, Cat
 
 def main():
+    animal_type = input("Enter an animal (dog or cat): ").strip().lower()
 
-    species = input("Enter animal species: \n")
-    sound = input("What sound does this animal make? E.g bark, meow, squeak. \n")
+    if animal_type == 'dog':
+        animal = Dog()
+    elif animal_type == 'cat':
+        animal = Cat()
+    else:
+        print("\nSorry, that animal is not recognized.")
+        return
 
-    animal_info = Animal(species, sound)
-
-    animal_info.make_sound()
+    animal.make_sound()
 
 
 if __name__ == "__main__":
